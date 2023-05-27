@@ -1,0 +1,205 @@
+header{
+    background-color: #121D28;
+
+    left: 0;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+body{
+    margin: 0;
+    font-family: 'Kurale', sans-serif;
+}
+  
+.container {
+    width: 85%;
+    max-width: 850px;
+    margin: 0px auto;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 75px;
+    height: auto;
+}
+
+.cent{
+    background-image: url(../img/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height:550px;
+    position: relative;
+}
+
+.cent-text{
+    position: absolute;
+    width: 100%;
+    height: 100%;    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cent-text h1{
+    font-family: 'Kurale', sans-serif;
+    font-weight: normal;
+    font-size: 50px;
+}
+
+.button{
+    font-family: 'Kurale', sans-serif;
+    font-weight: normal;
+    display: inline-block;
+    padding: 1px 15px;
+    background-color: #14212A;
+    color: #E3D8D4;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.photo-serv{
+    width: 200px;
+    height: auto;
+    padding-top: 1rem;
+}
+
+.service{    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #B1BFE2;
+}
+
+.pht-serv{
+    font-size: 10px;
+    text-align: center;
+}
+
+.SB{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SN{
+    flex: 1;
+}
+
+.comment{
+    text-align: center;
+    flex: 1;
+}
+
+.comm{
+    background: linear-gradient(180deg, #FFFFFF 0%, #B1BFE2 100%);
+    border-radius: 20px;
+    padding: 2px 10px;
+    margin: 2rem;
+}
+
+.comment-txt{
+    font-size: 14px;
+}
+
+.namecito{
+    font-size: 12px;
+    font-style: oblique;
+}
+
+.VSimage{
+    width: 400px;
+}
+
+.qr{
+    width: 200px;
+}
+
+.dwlapp{
+    width: 200px;
+}
+
+.VS-dwl{    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #B1BFE2;
+}
+
+.description{
+    flex: 1;
+    text-align: center;
+}
+
+.download{
+    text-align: center;
+    flex: 1;
+
+}
+
+.dwl{    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contacts{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contactos{
+    flex: 1;
+}
+
+.formul{
+    flex: 1;
+    align-items: center;
+}
+
+.centro{
+    text-align: center;
+}
+
+footer{
+    background-color: #B1BFE2;
+    padding: 1rem 0;
+}
+
+footer a{
+    color: #14212A;
+    text-decoration: none;
+}
+
+.ift{
+    width: 35px;
+    height: auto;
+}
+
+.foot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navigation ul li{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+}
+
+.navigation ul li a{
+    display: block;
+    padding: 0.5rem 0.2rem;
+}
+  
