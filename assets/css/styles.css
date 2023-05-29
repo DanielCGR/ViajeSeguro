@@ -14,10 +14,11 @@ body {
 header {
   background-color: #121D28;
   padding: 10px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .logo-container {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,6 +26,8 @@ header {
 
 .logo {
   max-width: 50px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Estilos de la sección principal */
@@ -231,7 +234,7 @@ button[type="submit"] {
 
 /* Estilos del pie de página */
 footer {
-    background-color: #f2f2f2;
+    background-color: #121D28;
     padding: 20px;
   }
   
@@ -244,7 +247,7 @@ footer {
   .logo-foot {
     font-weight: bold;
     text-decoration: none;
-    color: #333;
+    color: #fff;
   }
   
   ul {
@@ -256,6 +259,7 @@ footer {
   
   ul li {
     margin-right: 10px;
+    color: #ccc;
   }
   
   ul li:last-child {
@@ -264,6 +268,12 @@ footer {
   
   ul li a {
     text-decoration: none;
+    color: #B1BFE2;
+  }
+
+  ul .term-conditions a:hover {
+    text-decoration: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
   
   .ift {
@@ -287,4 +297,11 @@ footer {
   
   ul.term-conditions li:last-child {
     margin-right: 0;
+  }
+
+  @media only screen and (max-width: 767px) {
+    /* Estilos para dispositivos móviles */
+    .foot {
+      flex-direction: column;
+    }
   }
