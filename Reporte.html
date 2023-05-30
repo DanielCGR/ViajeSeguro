@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reporte de Fallos</title>
+        <link rel="stylesheet" href="assets/css/stylesofterms.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kurale">
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
+    <body>
+      <header>
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html"><img class="logo" src="assets/img/logo.png" alt="Cabecera"></a>
+            </div>
+        </div>
+    </header>
+
+        <div class="container">
+            <h1>Reporte de Error o Fallo</h1>
+    
+            <form action="procesar_reporte.php" method="POST">
+        
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion" rows="4" required></textarea><br>
+        
+            <label for="prioridad">Prioridad:</label>
+            <select id="prioridad" name="prioridad" required>
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="baja">Baja</option>
+            </select><br>
+        
+            <input type="submit" value="Enviar Reporte">
+            </form>
+
+        </div>      
+    </body>
+</html>
