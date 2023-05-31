@@ -3,12 +3,20 @@
   <head>
     <title>ViajeSeguro - Registro</title>
     <link rel="stylesheet" href="assets/css/signup.css">
+    <script>
+      function redireccionar() {
+        window.location.href = "main.html";
+      }
+    </script>
   </head>
   <body>
-    <header class="header">
-      <h1>ViajeSeguro</h1>
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/img/logo.png" alt="Logo">
+        </a>
+      </div>
     </header>
-    
     <main>
       <div class="container">
         <h2>Crear Cuenta</h2>
@@ -33,7 +41,7 @@
             <label for="terminos">Aceptar <a href="Term&Cond.html" target="_blank">Términos y Condiciones</a></label>
           </div>
     
-          <input type="submit" value="Registrarse" class="button">
+          <input type="submit" value="Registrarse" class="button" onclick="redireccionar()">
           <p class="login-link">¿Ya tienes cuenta? <a href="login.html">Inicia Sesión</a></p>
         </form>
       </div>

@@ -16,25 +16,23 @@
     margin: 0;
   }
   
-  header, footer {
-    text-align: center;
+  header {
+    width: 100%;
+    padding: 10px;
+    background-color: #121D28;
+    display: flex;
+    align-items: center;
   }
 
-  /* Estilos del encabezado */
-/* Estilos del encabezado */
-.header {
-    text-align: center;
-    background-color: #333333;
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 2px solid #ffffff;
-    width: 100%;
+  .logo{   
+    display: block;
+    margin: 0 auto;
   }
   
-  
+  .logo img {
+    height: 50px;
+  }
+
   
   h1 {
     font-size: 28px;

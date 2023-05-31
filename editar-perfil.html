@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editar Información</title>
+  <link rel="stylesheet" href="assets/css/edit-perfil.css">
+</head>
+    <body>
+        <header>
+            <div class="travel">
+                <a href="#">Viaja</a>
+              </div>
+            <div class="logo">
+              <a href="#">
+                <img src="assets/img/logo.png" alt="Logo">
+              </a>
+            </div>
+            <nav class="navigation">
+              <a href="#">Mapa</a>
+              <a href="perfil.html">Perfil</a>
+              <a href="#" class="logout"><img src="assets/img/cerrar-sesion.png" alt="LogOut" class="logout-img"></a>
+            </nav>
+        </header>  
+        <div class="container">
+            <h1>Editar Información</h1>
+            <form>
+            <div class="form-group">
+                <label for="photo">Editar Foto</label>
+                <input type="file" id="photo" name="photo">
+            </div>
+            <div class="form-group">
+                <label for="name">Editar Nombre</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Editar Correo</label>
+                <input type="text" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="description">Editar Descripción</label>
+                <textarea id="description" name="description" rows="4"></textarea>
+            </div>
+            <a href="perfil.html" class="btn">Guardar Cambios</a>
+            <a href="perfil.html" class="btn-cancel">Cancelar</a>
+            </form>
+        </div>
+    </body>
+</html>
