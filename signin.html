@@ -1,22 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kurale">
+<html>
+  <head>
+    <title>ViajeSeguro - Inicio de Sesión</title>
     <link rel="stylesheet" href="assets/css/signin.css">
-    <title>Iniciar Sesión</title>
-</head>
-
-    <header >
-        
+    <script>
+      function redireccionar() {
+        window.location.href = "main.html";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="#">
+          <img src="assets/img/logo.png" alt="Logo">
+        </a>
+      </div>
     </header>
-
+    
     <main>
-        
+      <div class="container">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form" action="procesar_login.php" method="post">
+          <label for="emailto">Correo electrónico:</label>
+          <input type="email" id="emailto" name="emailto" placeholder="example@correo.com" required><br><br>
+    
+          <label for="contrasena">Contraseña:</label>
+          <input type="password" id="contrasena" name="contrasena" required><br><br>
+    
+          <input type="button" value="Iniciar Sesión" class="button" onclick="redireccionar()">
+          <p class="signup-link">¿No tienes cuenta? <a href="signup.html">Regístrate</a></p>
+        </form>
+      </div>
     </main>
-
+    
     <footer>
-        
+      <p>ViajeSeguro INC® 2023</p>
     </footer>
+  </body>
 </html>
