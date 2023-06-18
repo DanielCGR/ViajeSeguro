@@ -3,6 +3,26 @@
 <head>
     <title>Bus Map</title>
     <style>
+        header {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #121D28;
+        }
+
+        .travel a{
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .navigation a{
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
         #map {
             height: 100%;
             width: 100%;
@@ -30,6 +50,18 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4KpYUQ4egMf-kWMSjqBKqqA9wop8YAho&libraries=places"></script>
 </head>
 <body>
+    <header>
+        <div class="travel">
+            <a href="main.html">Viaja</a>
+          </div>
+        <nav class="navigation">
+          <a href="maps.html">Mapa</a>
+          <a href="planes.html">Planes</a>
+          <a href="perfil.html">Perfil</a>
+          <a href="index.html" class="logout">Cerrar Sesión</a>
+        </nav>
+    </header>  
+
     <input id="searchInput" class="controls" type="text" placeholder="Search a location">
     <div id="map"></div>
 

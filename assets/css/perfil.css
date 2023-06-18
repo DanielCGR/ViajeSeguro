@@ -13,10 +13,6 @@ header {
   background-color: #121D28;
 }
 
-.logo img {
-  height: 40px;
-}
-
 .navigation{
   display: flex;
   justify-content: space-between;
