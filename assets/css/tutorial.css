@@ -1,0 +1,56 @@
+/* tutorial.css */
+
+/* Body and Background */
+body {
+  background-color: #FFFFFF; /* White */
+  color: #000000; /* Black */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background-color: #000000; /* Black */
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #FFFFFF; /* White */
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: #000000; /* Black */
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+p {
+  line-height: 1.5;
+  margin: 0 0 15px;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Footer */
+footer {
+  background-color: #000000; /* Black */
+  color: #FFFFFF; /* White */
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
