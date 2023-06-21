@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recargar saldo</title>        
+        <link rel="stylesheet" href="assets/css/perfil.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <style>
+            .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            }
+        </style>
+    </head>
+    <body>
+      <header>
+        <div class="travel">
+            <a href="main.html">Viaja</a>
+          </div>
+        <nav class="navigation">
+          <a href="maps.html">Mapa</a>
+          <a href="planes.html">Planes</a>
+          <a href="perfil.html">Perfil</a>
+          <a href="index.html" class="logout">Cerrar Sesión</a>
+        </nav>
+    </header>           
+        <main>
+            <div class="container">
+                <h1>Formulario de Tarjeta de Crédito</h1>
+                <form id="paymentForm" action="main.html">
+                  <div class="row mb-3">
+                    <div class="col">
+                      <label for="nombre">Nombre</label>
+                      <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="col">
+                      <label for="apellido">Apellido</label>
+                      <input type="text" class="form-control" id="apellido" required>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="numero">Número de Tarjeta</label>
+                    <input type="text" class="form-control" id="numero" required>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col">
+                      <label for="cvv">CVV</label>
+                      <input type="text" class="form-control" id="cvv" required>
+                    </div>
+                    <div class="col">
+                      <label for="vencimiento">Vencimiento</label>
+                      <input type="text" class="form-control" id="vencimiento" required>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="correo" required>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="guardarMetodo">
+                    <label class="form-check-label" for="guardarMetodo">Guardar Método de Pago</label>
+                  </div>
+                  <div class="mb-3">
+                    <label for="monto">Monto Adicional</label>
+                    <input type="number" class="form-control" id="monto" step="0.01" min="0">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Pagar</button>
+                </form>
+              </div>
+            
+              <div id="overlay" class="overlay d-none">
+                <div class="text-light text-center">
+                  <h2>Añadido</h2>
+                </div>
+              </div>
+            
+              <!-- Bootstrap JS -->
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+              <script>
+                const paymentForm = document.getElementById('paymentForm');
+                const overlay = document.getElementById('overlay');
+            
+                paymentForm.addEventListener('submit', function(event) {
+                  event.preventDefault();
+                  overlay.classList.remove('d-none');
+                  setTimeout(function() {
+                    overlay.classList.add('d-none');
+                    window.location.href = paymentForm.getAttribute('action');
+                  }, 2000);
+                });
+            
+                const guardarMetodoCheckbox = document.getElementById('guardarMetodo');
+                const montoInput = document.getElementById('monto');
+            
+                guardarMetodoCheckbox.addEventListener('change', function() {
+                  if (this.checked) {
+                    montoInput.disabled = true;
+                  } else {
+                    montoInput.disabled = false;
+                  }
+                });
+              </script>
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>
