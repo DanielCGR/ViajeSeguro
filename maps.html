@@ -2,6 +2,13 @@
 <html>
 <head>
     <title>Bus Map</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/icon/site.webmanifest">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kurale">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <style>
         /* Styles go here */
         #map {
@@ -27,6 +34,14 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4KpYUQ4egMf-kWMSjqBKqqA9wop8YAho&libraries=places"></script>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img class="logo" src="assets/img/logo.png" alt="Cabecera">
+            </div>
+        </div>
+    </header>
+    
     <input id="startInput" class="controls" type="text" placeholder="Enter your location">
     <input id="endInput" class="controls" type="text" placeholder="Enter destination">
     <div id="map"></div>
