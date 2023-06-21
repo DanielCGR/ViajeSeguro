@@ -3,26 +3,7 @@
 <head>
     <title>Bus Map</title>
     <style>
-        header {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #121D28;
-        }
-
-        .travel a{
-            margin-right: 10px;
-            color: #fff;
-            text-decoration: none;
-        }
-        .navigation a{
-            margin-right: 10px;
-            color: #fff;
-            text-decoration: none;
-        }
-
+        /* Styles go here */
         #map {
             height: 100%;
             width: 100%;
@@ -50,56 +31,26 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4KpYUQ4egMf-kWMSjqBKqqA9wop8YAho&libraries=places"></script>
 </head>
 <body>
-    <header>
-        <div class="travel">
-            <a href="main.html">Viaja</a>
-          </div>
-        <nav class="navigation">
-          <a href="maps.html">Mapa</a>
-          <a href="planes.html">Planes</a>
-          <a href="perfil.html">Perfil</a>
-          <a href="index.html" class="logout">Cerrar Sesión</a>
-        </nav>
-    </header>  
-
-    <input id="searchInput" class="controls" type="text" placeholder="Search a location">
+    <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
     <div id="map"></div>
-
     <script>
         function initMap() {
-            var center = {lat: -12.046374, lng: -77.042793};
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: center
+                center: {lat: -33.863276, lng: 151.107977},
+                zoom: 11
             });
-
             var input = document.getElementById('searchInput');
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
             var autocomplete = new google.maps.places.Autocomplete(input);
             autocomplete.bindTo('bounds', map);
 
-            var marker = new google.maps.Marker({
-                map: map,
-                anchorPoint: new google.maps.Point(0, -29)
-            });
-
             autocomplete.addListener('place_changed', function() {
-                marker.setVisible(false);
                 var place = autocomplete.getPlace();
-                if (!place.geometry) {
-                    window.alert("No details available for input: '" + place.name + "'");
-                    return;
-                }
-
                 if (place.geometry.viewport) {
                     map.fitBounds(place.geometry.viewport);
                 } else {
                     map.setCenter(place.geometry.location);
                     map.setZoom(17);
                 }
-                marker.setPosition(place.geometry.location);
-                marker.setVisible(true);
             });
         }
 
