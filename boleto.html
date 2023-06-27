@@ -6,6 +6,19 @@
   <title>Ticket de Pago</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <style>
+    header {
+    width: 100%;
+    background-color: #121D28;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
     .form-control {
       border: none;
       border-radius: 0;
@@ -17,6 +30,17 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="travel">
+      <a href="main.html">Viaja</a>
+    </div>
+  <nav class="navigation">
+    <a href="maps.html">Mapa</a>
+    <a href="planes.html">Planes</a>
+    <a href="perfil.html">Perfil</a>
+    <a href="index.html" class="logout">Cerrar Sesión</a>
+  </nav>
+  </header>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -26,11 +50,11 @@
             <form>
               <div class="mb-3">
                 <label for="nombreEmpresa" class="form-label">Nombre de la Empresa:</label>
-                <input type="text" class="form-control" id="nombreEmpresa" value="Empresa XYZ" readonly>
+                <input type="text" class="form-control" id="nombreEmpresa" value="El Rápido" readonly>
               </div>
               <div class="mb-3">
                 <label for="montoPago" class="form-label">Monto de Pago:</label>
-                <input type="number" class="form-control" id="montoPago" value="100.00" readonly>
+                <input type="number" class="form-control" id="montoPago" value="5.00" readonly>
               </div>
               <div class="mb-3">
                 <label for="fechaPago" class="form-label">Fecha de Pago:</label>
@@ -40,13 +64,14 @@
                 <label for="horaPago" class="form-label">Hora de Pago:</label>
                 <input type="time" class="form-control" id="horaPago" value="14:30" readonly>
               </div>
-              <button type="submit" class="btn btn-primary" onclick="redirectToHome()">Home</button>
+              <button type="button" class="btn btn-primary" onclick="redirectToHome()">Home</button>
             </form>
           </div>
         </div>
       </div>
     </div>
   </div>
+  </body>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -54,6 +79,4 @@
     window.location.href = 'main.html';
   }
   </script>
-  
-</body>
 </html>
