@@ -6,22 +6,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icon/favicon-16x16.png">
     <link rel="manifest" href="assets/img/icon/site.webmanifest">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kurale">
-    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Kurale" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
-        /* Styles go here */
         #map {
             height: 400px;
             width: 100%;
-        }
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        #searchInput {
-            width: 240px;
         }
         #directions-panel {
             margin-top: 10px;
@@ -34,7 +25,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4KpYUQ4egMf-kWMSjqBKqqA9wop8YAho&libraries=places"></script>
 </head>
 <body>
-    <header>
+    <header class="mb-3">
         <div class="container">
             <div class="logo-container">
                 <a href="index.html">
@@ -44,10 +35,17 @@
         </div>
     </header>
     
-    <input id="startInput" class="controls" type="text" placeholder="Enter your location">
-    <input id="endInput" class="controls" type="text" placeholder="Enter destination">
-    <div id="map"></div>
-    <div id="directions-panel"></div>
+    <div class="container">
+        <input id="startInput" class="controls form-control mb-3" type="text" placeholder="Enter your location">
+        <input id="endInput" class="controls form-control mb-3" type="text" placeholder="Enter destination">
+        <div id="map" class="mb-3"></div>
+        <div id="directions-panel" class="mb-3"></div>
+        <div id="total" class="mb-3">Total Distance: 0 km</div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
     <script>
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
