@@ -3,83 +3,100 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kurale">
-    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 150%; /* Make the table text twice as large */
-        }
-        th, td {
-            border: 1px solid grey;
-            padding: 20px; /* Increase padding for larger text */
-            text-align: center;
-            background: white;
-        }
-        .title {
-            background-color: #4caf50; /* Set your preferred color */
-            color: white;
-            padding: 10px;
-        }
-    </style>
     <title>Horarios de Buses | ViajeSeguro</title>
+
+    <!-- Load the Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4KpYUQ4egMf-kWMSjqBKqqA9wop8YAho"></script>
+
+    <script>
+        function initMap() {
+            var stops = {
+                "Ovalo Gutierrez": {lat: -12.11106282779169, lng: -77.03460625427724},
+                "Av. Dos de Mayo": {lat: -12.098770707128946, lng: -77.03690299880847},
+                "Parque Kennedy": {lat: -12.120473891484655, lng: -77.03017645570854},
+                "Larcomar": {lat: -12.131834203573093, lng: -77.03567187782008},
+                "Mercado No.1 Surquillo": {lat: -12.1117535274119, lng: -77.01165616519589},
+                "Av. Tomas Marsano": {lat: -12.111839216276427, lng: -77.01019736670995},
+                "Puente de los Suspiros": {lat: -12.148261708562606, lng: -77.02134735385157},
+                "Av. Grau": {lat: -12.141579047056612, lng: -77.0215629268071}
+            };
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: {lat: -12.0464, lng: -77.0428}
+            });
+
+            for (var stop in stops) {
+                new google.maps.Marker({
+                    position: stops[stop],
+                    map: map,
+                    title: stop
+                });
+            }
+        }
+
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo-container">
-                <a href="index.html"><img class="logo" src="assets/img/logo.png" alt="Cabecera"></a>
-            </div>
+    <header class="container mb-4">
+        <div class="logo-container">
+            <a href="index.html"><img class="logo" src="assets/img/logo.png" alt="Cabecera"></a>
         </div>
     </header>
 
     <main>
-        <section class="cent">
-            <div class="cent-text">
-                <h1 class="title">Horarios de Buses</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Número de Bus</th>
-                            <th>Distrito</th>
-                            <th>Hora de Salida</th>
-                            <th>Hora de Llegada</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>101</td>
-                            <td>San Isidro</td>
-                            <td>8:00 AM</td>
-                            <td>10:00 AM</td>
-                        </tr>
-                        <tr>
-                            <td>102</td>
-                            <td>Miraflores</td>
-                            <td>9:00 AM</td>
-                            <td>11:00 AM</td>
-                        </tr>
-                        <tr>
-                            <td>103</td>
-                            <td>Surquillo</td>
-                            <td>10:00 AM</td>
-                            <td>12:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>104</td>
-                            <td>Barranco</td>
-                            <td>11:00 AM</td>
-                            <td>1:00 PM</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+        <div class="container">
+            <h1 class="text-center my-4 bg-success text-white p-3">Horarios de Buses</h1>
+            <table class="table table-bordered">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Número de Bus</th>
+                        <th>Distrito</th>
+                        <th>Hora de Salida</th>
+                        <th>Hora de Llegada</th>
+                        <th>Paradas Principales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101</td>
+                        <td>San Isidro</td>
+                        <td>8:00 AM</td>
+                        <td>10:00 AM</td>
+                        <td>Ovalo Gutierrez, Av. Dos de Mayo</td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>Miraflores</td>
+                        <td>9:00 AM</td>
+                        <td>11:00 AM</td>
+                        <td>Parque Kennedy, Larcomar</td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>Surquillo</td>
+                        <td>10:00 AM</td>
+                        <td>12:00 PM</td>
+                        <td>Mercado No.1 Surquillo, Av. Tomas Marsano</td>
+                    </tr>
+                    <tr>
+                        <td>104</td>
+                        <td>Barranco</td>
+                        <td>11:00 AM</td>
+                        <td>1:00 PM</td>
+                        <td>Puente de los Suspiros, Av. Grau</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Add a div element to display the map -->
+            <div id="map" style="height: 500px; width: 100%;"></div>
+        </div>
     </main>
-
-    <footer>
+    <footer class="container my-4">
+        <!-- Footer Content -->
     </footer>
 </body>
 </html>
