@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Horarios de Buses | ViajeSeguro</title>
 
-    <!-- Load the Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4KpYUQ4egMf-kWMSjqBKqqA9wop8YAho"></script>
 
     <script>
+        var busColors = {
+            "101": {"map": "#FF0000", "table": "rgba(255,0,0,0.2)"},
+            "102": {"map": "#00FF00", "table": "rgba(0,255,0,0.2)"},
+            "103": {"map": "#0000FF", "table": "rgba(0,0,255,0.2)"},
+            "104": {"map": "#FFFF00", "table": "rgba(255,255,0,0.2)"}
+        };
+
         function initMap() {
             var stops = {
                 "Ovalo Gutierrez": {lat: -12.11106282779169, lng: -77.03460625427724},
@@ -20,7 +26,29 @@
                 "Mercado No.1 Surquillo": {lat: -12.1117535274119, lng: -77.01165616519589},
                 "Av. Tomas Marsano": {lat: -12.111839216276427, lng: -77.01019736670995},
                 "Puente de los Suspiros": {lat: -12.148261708562606, lng: -77.02134735385157},
-                "Av. Grau": {lat: -12.141579047056612, lng: -77.0215629268071}
+                "Av. Grau": {lat: -12.141579047056612, lng: -77.0215629268071},
+                "Estadio Nacional": {lat: -12.0680556, lng: -77.0333333},
+                "Plaza San Martin": {lat: -12.0469444, lng: -77.0427778},
+                "Parque del Amor": {lat: -12.1319444, lng: -77.0305556},
+                "Huaca Pucllana": {lat: -12.116111, lng: -77.030},
+                "Mercado N°2 Surquillo": {lat: -12.124, lng: -77.02},
+                "Parque Reducto N°2": {lat: -12.1186111, lng: -77.0233333},
+                "Museo Pedro de Osma": {lat: -12.148611, lng: -77.020833},
+                "MAC Barranco": {lat: -12.149444, lng: -77.020278}
+            };
+
+            var busRoutes = {
+                "101": ["Ovalo Gutierrez", "Av. Dos de Mayo", "Estadio Nacional", "Plaza San Martin"],
+                "102": ["Parque Kennedy", "Larcomar", "Parque del Amor", "Huaca Pucllana"],
+                "103": ["Mercado No.1 Surquillo", "Av. Tomas Marsano", "Mercado N°2 Surquillo", "Parque Reducto N°2"],
+                "104": ["Puente de los Suspiros", "Av. Grau", "Museo Pedro de Osma", "MAC Barranco"]
+            };
+
+            var busColors = {
+                "101": {"map": "#FF0000", "table": "rgba(255,0,0,0.2)"},
+                "102": {"map": "#00FF00", "table": "rgba(0,255,0,0.2)"},
+                "103": {"map": "#0000FF", "table": "rgba(0,0,255,0.2)"},
+                "104": {"map": "#FFFF00", "table": "rgba(255,255,0,0.2)"}
             };
 
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -28,18 +56,42 @@
                 center: {lat: -12.0464, lng: -77.0428}
             });
 
-            for (var stop in stops) {
-                new google.maps.Marker({
-                    position: stops[stop],
-                    map: map,
-                    title: stop
+            for (var bus in busRoutes) {
+                var pathCoordinates = [];
+                for (var i = 0; i < busRoutes[bus].length; i++) {
+                    var stop = busRoutes[bus][i];
+                    var marker = new google.maps.Marker({
+                        position: stops[stop],
+                        map: map,
+                        title: stop,
+                        icon: {
+                            path: google.maps.SymbolPath.CIRCLE,
+                            scale: 10,
+                            fillColor: busColors[bus].map,
+                            fillOpacity: 1,
+                            strokeColor: busColors[bus].map,
+                            strokeOpacity: 1
+                        }
+                    });
+                    pathCoordinates.push(stops[stop]);
+                }
+
+                var busPath = new google.maps.Polyline({
+                    path: pathCoordinates,
+                    geodesic: true,
+                    strokeColor: busColors[bus].map,
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
                 });
+
+                busPath.setMap(map);
             }
         }
 
         google.maps.event.addDomListener(window, 'load', initMap);
     </script>
 </head>
+
 <body>
     <header class="container mb-4">
         <div class="logo-container">
@@ -61,42 +113,50 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr data-bus="101">
                         <td>101</td>
                         <td>San Isidro</td>
                         <td>8:00 AM</td>
                         <td>10:00 AM</td>
-                        <td>Ovalo Gutierrez, Av. Dos de Mayo</td>
+                        <td>Ovalo Gutierrez, Av. Dos de Mayo, Estadio Nacional, Plaza San Martin</td>
                     </tr>
-                    <tr>
+                    <tr data-bus="102">
                         <td>102</td>
                         <td>Miraflores</td>
                         <td>9:00 AM</td>
                         <td>11:00 AM</td>
-                        <td>Parque Kennedy, Larcomar</td>
+                        <td>Parque Kennedy, Larcomar, Parque del Amor, Huaca Pucllana</td>
                     </tr>
-                    <tr>
+                    <tr data-bus="103">
                         <td>103</td>
                         <td>Surquillo</td>
                         <td>10:00 AM</td>
                         <td>12:00 PM</td>
-                        <td>Mercado No.1 Surquillo, Av. Tomas Marsano</td>
+                        <td>Mercado No.1 Surquillo, Av. Tomas Marsano, Mercado N°2 Surquillo, Parque Reducto N°2</td>
                     </tr>
-                    <tr>
+                    <tr data-bus="104">
                         <td>104</td>
                         <td>Barranco</td>
                         <td>11:00 AM</td>
                         <td>1:00 PM</td>
-                        <td>Puente de los Suspiros, Av. Grau</td>
+                        <td>Puente de los Suspiros, Av. Grau, Museo Pedro de Osma, MAC Barranco</td>
                     </tr>
                 </tbody>
             </table>
-            <!-- Add a div element to display the map -->
             <div id="map" style="height: 500px; width: 100%;"></div>
         </div>
     </main>
     <footer class="container my-4">
-        <!-- Footer Content -->
     </footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var rows = document.querySelectorAll("tr[data-bus]");
+        rows.forEach(function(row) {
+            var bus = row.getAttribute('data-bus');
+            row.style.backgroundColor = busColors[bus]["table"];
+        });
+    });
+</script>    
 </body>
 </html>
