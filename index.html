@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kurale">
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <title>ViajeSeguro</title>
 </head>
 <body>
@@ -23,127 +24,154 @@
 
     <main>
         <section class="cent">
-            <div class="cent-text">
+            <div class="cent-text text-center">
                 <h1>VIAJESEGURO</h1>
-                <table>
-                    <tr>
-                        <td></table><a class="button" href="acceso.html">ACCESO</a></td>
-                    </tr>
-                
+                <div class="text-center">
+                    <a class="btn btn-primary" href="acceso.html" style="background-color: #121D28; border: none;">ACCESO</a>
+                </div>
             </div>
         </section>
 
         <section class="service">
-            <div class="serv">
-                <div>
-                    <h2>Servicios</h2>
-                    <p>ViajeSeguro es una empresa en Lima, que ofrece pagos seguros para viajar en buses públicos. Paga con tu teléfono para comprar billetes de bus y disfruta de tu viaje con comodidad y seguridad.</p>  
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2>Servicios</h2>
+                        <p>ViajeSeguro es una empresa en Lima, que ofrece pagos seguros para viajar en buses públicos. Paga con tu teléfono para comprar billetes de bus y disfruta de tu viaje con comodidad y seguridad.</p>  
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="row justify-content-end">
+                            <div class="col-md-4">
+                                <div class="card photo-serv" style="width: 12rem; background-color: #B1BFE2; border: none;">
+                                    <img src="assets/img/bus.png" class="card-img-top" alt="bus">
+                                    <div class="card-body">
+                                      <p class="card-text">Movilízate con cualquier bus</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card photo-serv" style="width: 12rem; background-color: #B1BFE2; border: none;">
+                                    <a href="horarios.html"><img src="assets/img/horario.png" class="card-img-top" alt="horario"></a>
+                                    <div class="card-body">
+                                      <p class="card-text">Conoce los horarios de las líneas</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card photo-serv" style="width: 12rem; background-color: #B1BFE2; border: none;">
+                                    <a href="maps.html"><img src="assets/img/map.png" class="card-img-top" alt="mapa"></a>
+                                    <div class="card-body">
+                                    <p class="card-text">Conoce el tráfico en tiempo real</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
                 </div>
-                <div class="table-container"></div>
-                    <table class="pht-serv">
-                        <tr>
-                            <td><img src="assets/img/bus.png" alt="bus" class="photo-serv"></td>
-                            <td><p>Movilízate con cualquier bus</p></td>
-                        </tr>
-                        <tr>
-                            <td><a href="horarios.html"><img src="assets/img/horario.png" alt="horario" class="photo-serv"></a></td>
-                            <td><p>Conoce los horarios de las líneas</p></td>
-                        </tr>
-                        <tr>
-                            <td><a href="maps.html"><img src="assets/img/map.png" alt="mapa" class="photo-serv"></a></td>
-                            <td><p>Conoce el tráfico en tiempo real</p></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>                
+            </div>
         </section>
         
         <section class="SB">
-            <div class="SN">
-                <h2>Sobre nosotros</h2>
-                <p>Somos los desarrolladores de ViajeSeguro, una nueva empresa de pago por aplicación en buses públicos en Lima. Estamos muy emocionados de presentar nuestro producto a la comunidad. Estamos comprometidos a proporcionar una forma segura y confiable de viajar en buses públicos. Con nuestra aplicación, los usuarios pueden buscar y reservar un viaje, pagar con tarjeta de crédito y obtener un recibo digital para su viaje. También proporcionamos una herramienta de seguimiento en vivo para que los usuarios puedan ver el recorrido de los buses en tiempo real. Nuestro objetivo es proporcionar una experiencia segura, fluida y sin problemas para todos los usuarios. Estamos muy contentos de ofrecer esta solución a la comunidad</p>    
-            </div>
-            <div class="comment">
-                <div class="comm">
-                    <p class="comment-txt">ViajeSeguro me ha dado tranquilidad al viajar en los buses públicos de Lima. Con el pago a través de la aplicación, me siento más cómodo y seguro durante mis viajes.</p>
-                    <p class="namecito">Juan Rodríguez</p>
-                </div>
-                <div class="comm">
-                    <p class="comment-txt">ViajeSeguro ha sido una ayuda increíble para mí. Es tan fácil de usar y hace que pagar el transporte sea tan simple y seguro. ¡Altamente recomendado!</p>
-                    <p class="namecito">Roberto Palacios</p>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2>Sobre nosotros</h2>
+                        <p>Somos los desarrolladores de ViajeSeguro, una nueva empresa de pago por aplicación en buses públicos en Lima. Estamos muy emocionados de presentar nuestro producto a la comunidad. Estamos comprometidos a proporcionar una forma segura y confiable de viajar en buses públicos. Con nuestra aplicación, los usuarios pueden buscar y reservar un viaje, pagar con tarjeta de crédito y obtener un recibo digital para su viaje. También proporcionamos una herramienta de seguimiento en vivo para que los usuarios puedan ver el recorrido de los buses en tiempo real. Nuestro objetivo es proporcionar una experiencia segura, fluida y sin problemas para todos los usuarios. Estamos muy contentos de ofrecer esta solución a la comunidad</p>    
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="row">
+                            <div class="col-md-6 comm">
+                                <p class="comment-txt">ViajeSeguro me ha dado tranquilidad al viajar en los buses públicos de Lima. Con el pago a través de la aplicación, me siento seguro durante mis viajes.</p>
+                                <p class="namecito">Juan Rodríguez</p>
+                            </div>
+                            <div class="col-md-6 comm">
+                                <p class="comment-txt">ViajeSeguro ha sido una ayuda increíble para mí. Es tan fácil de usar y hace que pagar el transporte sea tan simple y seguro. ¡Altamente recomendado!</p>
+                                <p class="namecito">Roberto Palacios</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     
         <section class="VS-dwl">
-            <div class="VS">
-                <div class="description">
-                    <img src="assets/img/VS.png" alt="Imagen 4" class="VSimage">
-                    <p>ViajeSeguro es un revolucionario negocio de pago en Perú. Te permite pagar de forma segura y cómoda todos tus gastos de viaje con tu móvil, ahorrándote tiempo y dinero. ¡Con ViajeSeguro, puedes estar seguro de que tus pagos están seguros y protegidos!</p>    
-                </div>
-                <div class="download">
-                    <div>
-                        <h2>Escanea el QR con tu celular</h2>
-                        <p>Descarga ViajeSeguro escaneando el código con tu celular.</p>
-                        <img src="assets/img/qr.png" alt="QR" class="qr">
-                        <h1>o</h1>
-                    </div>
-                    <div class="dwl">
-                        <div>
-                            <a href="#"><img src="assets/img/gp.png" alt="Imagen 5" class="dwlapp"></a>
-                        </div>
-                        <div>
-                            <a href="#"><img src="assets/img/as.png" alt="Imagen 6" class="dwlapp"></a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="description">
+                            <img src="assets/img/VS.png" alt="Imagen 4" class="VSimage">
+                            <p>ViajeSeguro es un revolucionario negocio de pago en Perú. Te permite pagar de forma segura y cómoda todos tus gastos de viaje con tu móvil, ahorrándote tiempo y dinero. ¡Con ViajeSeguro, puedes estar seguro de que tus pagos están seguros y protegidos!</p>    
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="download">
+                            <div>
+                                <h2>Escanea el QR con tu celular</h2>
+                                <p>Descarga ViajeSeguro escaneando el código con tu celular.</p>
+                                <img src="assets/img/qr.png" alt="QR" class="qr">
+                                <h2><br>o</h2>
+                            </div>
+                            <div class="row align-items-evenly">
+                                <div class="col-md-6">
+                                    <a href="#"><img src="assets/img/gp.png" alt="Imagen 5" class="dwlapp" style="max-width: 200px; height: auto;"></a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#"><img src="assets/img/as.png" alt="Imagen 6" class="dwlapp" style="max-width: 200px; height: auto;"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>                
+            </div>
         </section>
     
         <section class="contacts">
-            <div class="contactos">
-                <h2>Contacto</h2>
-                <p>Envíanos un mensaje si tienes alguna pregunta acerca de nuestra aplicación</p>    
-            </div>
-            <div class="formul">
-                <form>
-                    <table>
-                        <tr>
-                            <td><label for="nombre">Nombre:</label></td>
-                            <td><input type="text" id="nombre" name="nombre" required></td>
-                        </tr>
-                        <tr>
-                            <td><label for="correo">Correo:</label></td>
-                            <td><input type="email" id="correo" name="correo" required></td>
-                        </tr>
-                        <tr>
-                            <td><label for="comentario">Comentario:</label></td>
-                            <td><textarea id="comentario" name="comentario" required></textarea></td>
-                        </tr>
-                        <tr class="centro">
-                            <td colspan="2"><button type="submit">Enviar</button></td>
-                        </tr>
-                    </table>
-                </form>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2>Contacto</h2>                     
+                        <p>Envíanos un mensaje si tienes alguna pregunta acerca de nuestra aplicación</p>
+                    </div>
+                    <div class="col-md-6">
+                        <form>
+                            <div class="form-group">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="correo">Correo:</label>
+                                <input type="email" class="form-control" id="correo" name="correo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="comentario">Comentario:</label>
+                                <textarea class="form-control" id="comentario" name="comentario" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="foot">
-            <a href="#" class="logo-foot">ViajeSeguro</a>
-            <ul>
-                <li>Empresas afiliadas</li>
-                <li>Comunidad</li>
-                <li>Publicidad</li>
-                <li class="term-conditions"><a href="Term&Cond.html" target="_blank">Términos y Condiciones</a></li>
-            </ul>
-            <ul class="ift-container">
-                <li><a href="#"><img src="assets/img/ig.png" alt="Instagram" class="ift"></a></li>
-                <li><a href="#"><img src="assets/img/fb.png" alt="Facebook" class="ift"></a></li>
-                <li><a href="#"><img src="assets/img/tw.png" alt="Twitter" class="ift"></a></li>
-            </ul>
+        <div class="container">
+            <div class="foot">
+                <a href="#" class="logo-foot">ViajeSeguro</a>
+                <ul>
+                    <li>Empresas afiliadas</li>
+                    <li class="reporte"><a href="Reporte.html" target="_blank">Reportar error</a></li>
+                    <li class="version"><a href="version.html" target="_blank">Versión</a></li>
+                    <li class="version"><a href="tutorial.html" target="_blank">Tutorial</a></li>
+                    <li class="term-conditions"><a href="Term&Cond.html" target="_blank">Términos y Condiciones</a></li>
+                </ul>
+                <ul class="ift-container">
+                    <li><a href="#"><img src="assets/img/ig.png" alt="Instagram" class="ift"></a></li>
+                    <li><a href="#"><img src="assets/img/fb.png" alt="Facebook" class="ift"></a></li>
+                    <li><a href="#"><img src="assets/img/tw.png" alt="Twitter" class="ift"></a></li>
+                </ul>
+            </div>
         </div>
-      </footer>      
+    </footer>
 </body>
 </html>

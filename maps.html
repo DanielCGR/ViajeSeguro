@@ -2,49 +2,34 @@
 <html>
 <head>
     <title>Bus Map</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/icon/site.webmanifest">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kurale">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <style>
-        header {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #121D28;
-        }
-
-        .travel a{
-            margin-right: 10px;
-            color: #fff;
-            text-decoration: none;
-        }
-        .navigation a{
-            margin-right: 10px;
-            color: #fff;
-            text-decoration: none;
-        }
-
+        /* Styles go here */
         #map {
-            height: 100%;
+            height: 400px;
             width: 100%;
         }
-
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
         }
-
         #searchInput {
-            position: absolute;
-            top: 1%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 5;
-            background-color: #fff;
-            padding: 5px;
-            border: 1px solid #999;
-            text-overflow: ellipsis;
-            width: 40%;
+            width: 240px;
+        }
+        #directions-panel {
+            margin-top: 10px;
+            background-color: #FFFFFF;
+            padding: 10px;
+            overflow: auto;
+            height: 174px;
         }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4KpYUQ4egMf-kWMSjqBKqqA9wop8YAho&libraries=places"></script>
@@ -60,47 +45,66 @@
           <a href="perfil.html">Perfil</a>
           <a href="index.html" class="logout">Cerrar Sesión</a>
         </nav>
-    </header>  
-
-    <input id="searchInput" class="controls" type="text" placeholder="Search a location">
+      </header> 
+    
+    <input id="startInput" class="controls" type="text" placeholder="Enter your location">
+    <input id="endInput" class="controls" type="text" placeholder="Enter destination">
     <div id="map"></div>
-
+    <div id="directions-panel"></div>
     <script>
         function initMap() {
-            var center = {lat: -12.046374, lng: -77.042793};
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: center
+                zoom: 15,
+                center: {lat: -12.085650, lng: -76.977020} // UPC Monterrico
             });
-
-            var input = document.getElementById('searchInput');
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-            var autocomplete = new google.maps.places.Autocomplete(input);
-            autocomplete.bindTo('bounds', map);
-
-            var marker = new google.maps.Marker({
+            
+            var directionsService = new google.maps.DirectionsService;
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+                draggable: true,
                 map: map,
-                anchorPoint: new google.maps.Point(0, -29)
+                panel: document.getElementById('directions-panel')
             });
 
-            autocomplete.addListener('place_changed', function() {
-                marker.setVisible(false);
-                var place = autocomplete.getPlace();
-                if (!place.geometry) {
-                    window.alert("No details available for input: '" + place.name + "'");
-                    return;
-                }
+            directionsDisplay.addListener('directions_changed', function() {
+                computeTotalDistance(directionsDisplay.getDirections());
+            });
 
-                if (place.geometry.viewport) {
-                    map.fitBounds(place.geometry.viewport);
+            var startAutocomplete = new google.maps.places.Autocomplete(document.getElementById('startInput'));
+            var endAutocomplete = new google.maps.places.Autocomplete(document.getElementById('endInput'));
+
+            document.getElementById('startInput').addEventListener('change', onChangeHandler);
+            document.getElementById('endInput').addEventListener('change', onChangeHandler);
+
+            function onChangeHandler() {
+                calculateAndDisplayRoute(directionsService, directionsDisplay);
+            }
+        }
+
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            var start = document.getElementById('startInput').value;
+            var end = document.getElementById('endInput').value;
+            
+            directionsService.route({
+                origin: start,
+                destination: end,
+                travelMode: 'TRANSIT'
+            }, function(response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
                 } else {
-                    map.setCenter(place.geometry.location);
-                    map.setZoom(17);
+                    window.alert('Directions request failed due to ' + status);
                 }
-                marker.setPosition(place.geometry.location);
-                marker.setVisible(true);
             });
+        }
+
+        function computeTotalDistance(result) {
+            var total = 0;
+            var myroute = result.routes[0];
+            for (var i = 0; i < myroute.legs.length; i++) {
+                total += myroute.legs[i].distance.value;
+            }
+            total = total / 1000;
+            document.getElementById('total').innerHTML = total + ' km';
         }
 
         google.maps.event.addDomListener(window, 'load', initMap);
